@@ -26,18 +26,22 @@ export function Nav() {
         height={32}
       />
       {navItems.map((item) => (
-        <Link
-          key={item.href}
-          href={item.href}
-          className={cn(
-            "px-3 py-2 rounded-md text-sm font-medium",
-            pathname === item.href
-              ? " text-red-700"
-              : "text-gray-700 hover:text-red-700"
+        <div key={item.href} className="relative">
+          <Link
+            href={item.href}
+            className={cn(
+              "px-3 py-2 rounded-md text-sm font-medium",
+              pathname === item.href
+                ? "text-red-700"
+                : "text-gray-700 hover:text-red-700"
+            )}
+          >
+            {item.label}
+          </Link>
+          {(pathname === item.href || pathname === item.href + "/") && (
+            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-red-700"></div>
           )}
-        >
-          {item.label}
-        </Link>
+        </div>
       ))}
     </nav>
   );
