@@ -7,16 +7,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { useEmissions } from "@/lib/emissionsContext";
-import { dummyEmissionResult } from "@/lib/dummyData";
 
 export const dynamic = "force-dynamic";
 
 export default function Process() {
-  const { result } = useEmissions();
-
-  const emissions = result || dummyEmissionResult;
-
   return (
     <div className="flex-1 space-y-4 p-8 pt-6">
       <div className="flex items-center justify-between space-y-2 mb-6">

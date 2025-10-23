@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
@@ -18,7 +19,12 @@ export function Nav() {
 
   return (
     <nav className="flex items-center space-x-4 p-4 pb-8 bg-gray-100">
-      <img src="/companyLogo.png" alt="Company Logo" className="h-8 w-auto" />
+      <Image
+        src="/companyLogo.png"
+        alt="Company Logo"
+        width={100}
+        height={32}
+      />
       {navItems.map((item) => (
         <Link
           key={item.href}
