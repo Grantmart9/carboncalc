@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <EmissionsProvider>
           <Nav />
-          {children}
+          <div>{children}</div>
         </EmissionsProvider>
       </body>
     </html>

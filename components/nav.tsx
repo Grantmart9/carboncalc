@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
 
 const navItems = [
   { href: "/", label: "Dashboard" },
@@ -27,17 +28,22 @@ export function Nav() {
       />
       {navItems.map((item) => (
         <div key={item.href} className="relative">
-          <Link
-            href={item.href}
-            className={cn(
-              "px-3 py-2 rounded-md text-sm font-medium",
-              pathname === item.href
-                ? "text-red-700"
-                : "text-gray-700 hover:text-red-700"
-            )}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
           >
-            {item.label}
-          </Link>
+            <Link
+              href={item.href}
+              className={cn(
+                "px-3 py-2 rounded-md text-sm font-medium",
+                pathname === item.href
+                  ? "text-red-700"
+                  : "text-gray-700 hover:text-red-700"
+              )}
+            >
+              {item.label}
+            </Link>
+          </motion.div>
           {(pathname === item.href || pathname === item.href + "/") && (
             <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-red-700"></div>
           )}
